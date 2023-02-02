@@ -1,0 +1,182 @@
+/*
+ * @praboth 2023
+ */
+
+/*font import*/
+@import url("https://fonts.googleapis.com/css2?family=Anek+Gurmukhi:wght@100;200;300;400;500;600;700;800&family=Fredoka:wght@300;400;500;600;700&display=swap");
+
+/*added background image*/
+body {
+    background: url("https://images.pexels.com/photos/14353494/pexels-photo-14353494.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2");
+    background-size: cover;
+}
+
+/*this is the navigation bar main element*/
+.navigation {
+    display: block;
+    position: fixed;
+    z-index: 222;
+}
+
+/*this is navigation bar body(child) element*/
+.navigation .nav-content {
+    position: fixed;
+    top: 0;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    display: grid;
+    width: 100%;
+    height: 0;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0, 0, 0, 0.55);
+    -webkit-backdrop-filter: blur(11px);
+    backdrop-filter: blur(11px);
+    transition: all cubic-bezier(0.54, -0.74, 0.57, 1.85) 1s;
+}
+
+/*this is navigation bar body all anchor tags*/
+.navigation .nav-content a {
+    color: white;
+    text-decoration: none;
+}
+
+/*this is navigation bar header anchor tag (logo text)*/
+.navigation .nav-content .navigation-header a {
+    display: block;
+    padding: 11px;
+    text-align: center;
+}
+
+/*this is navigation header  (logo text parent element)*/
+.navigation .nav-content .navigation-header {
+    font-family: "Fredoka", sans-serif;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    /*padding-block: 1rem;*/
+    font-size: xx-large;
+    background: rgba(30, 30, 30, 0.21);
+}
+
+/*this is navigation body  (navigation item anchor tag's parent element)*/
+.navigation .nav-content .navigation-body {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+
+/*this is navigation body anchor tag*/
+.navigation .nav-content .navigation-body a {
+    font-weight: 700;
+    font-size: xxx-large;
+    letter-spacing: 0.5rem;
+    padding: 11px;
+    padding-top: 25px;
+    margin: 11px;
+    font-family: "Anek Gurmukhi", sans-serif !important;
+}
+
+/*this is the animation for the navigation bar body items hover*/
+.navigation .nav-content .navigation-body a:hover {
+    animation-name: navHover;
+    animation-fill-mode: both;
+    animation-timing-function: cubic-bezier(0.69, 0.25, 0.03, 2);
+    animation-duration: 1s;
+}
+
+/*this is the burger button div*/
+.burger-button {
+    position: fixed;
+    top: 0;
+    right: 0;
+    z-index: 999;
+    cursor: pointer;
+    margin: 22px;
+    margin-top: 0;
+    padding: 33px;
+    padding-left: 22px;
+    width: 33px;
+    background-color: rgba(0, 0, 0, 0.49);
+    transition: all cubic-bezier(0.54, -0.74, 0.57, 1.85) 0.5s;
+}
+
+/*this is the burger button div parent element*/
+.burger {
+    width: 100%;
+    height: 5px;
+    border-radius: 5px;
+    background-color: #cbcbcb;
+    transition: all cubic-bezier(0.54, -0.74, 0.57, 1.85) 1s;
+}
+
+/*this is the burger button div top line*/
+.burger::before {
+    content: "";
+    position: absolute;
+    width: 44px;
+    height: 5px;
+    border-radius: 5px;
+    background-color: white;
+    margin-top: -10px;
+    transition: all cubic-bezier(0.54, -0.74, 0.57, 1.85) 1s;
+}
+
+/*this is the burger button div bottom line*/
+.burger::after {
+    content: "";
+    position: absolute;
+    width: 44px;
+    height: 5px;
+    border-radius: 5px;
+    background-color: #8d8d8d;
+    margin-top: 10px;
+    transition: all cubic-bezier(0.54, -0.74, 0.57, 1.85) 1s;
+}
+
+
+/*if click .burger-button it was catch in javascript and add this class to same element*/
+/*this was use to animate burger button*/
+.burger.active {
+    transform: rotate(45deg);
+    background-color: transparent;
+}
+
+/*this use to set navigation bar to full page*/
+.nav-content.active {
+    height: 100vh;
+}
+
+/*this is burger button top line after click the burger button*/
+.burger.active::before {
+    transform: rotate(90deg);
+    margin-left: -2px;
+    margin-top: -2px;
+    background-color: white;
+}
+
+/*this is burger button bottom line after click the burger button*/
+.burger.active::after {
+    transform: rotate(360deg);
+    margin-left: -2px;
+    margin-top: -2px;
+    background-color: white;
+}
+
+/*this is burger button div after click the burger button*/
+.burger-button.active {
+    background-color: transparent;
+}
+
+/*this is the animation for the navigation bar body content*/
+@keyframes navHover {
+    0% {
+        text-underline-offset: 0;
+    }
+    100% {
+        background: rgba(225, 225, 225, 0.9);
+        color: black;
+        text-decoration: underline;
+        text-underline-offset: 0.5rem;
+    }
+}
